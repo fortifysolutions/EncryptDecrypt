@@ -1,0 +1,120 @@
+import os
+import time
+
+
+print('-----------------------------------------------------------------------------------\n')
+print("\033[1;31md88888b d8b   db  .o88b. d8888b. db    db d8888b. d888888b   .d888b.  \n"
+"88'     888o  88 d8P  Y8 88  `8D `8b  d8' 88  `8D `~~88~~'   8P   8D  \n"
+"88ooooo 88V8o 88 8P      88oobY'  `8bd8'  88oodD'    88      `Vb d8'  \n"
+"88~~~~~ 88 V8o88 8b      88`8b      88    88~~~      88       d88C dD \n"
+"88.     88  V888 Y8b  d8 88 `88.    88    88         88      C8' d8D  \n"
+"Y88888P VP   V8P  `Y88P' 88   YD    YP    88         YP      `888P Yb \n"
+"\n"
+"d8888b. d88888b  .o88b. d8888b. db    db d8888b. d888888b \n"
+"88  `8D 88'     d8P  Y8 88  `8D `8b  d8' 88  `8D `~~88~~' \n"
+"88   88 88ooooo 8P      88oobY'  `8bd8'  88oodD'    88    \n"
+"88   88 88~~~~~ 8b      88`8b      88    88~~~      88    \n"
+"88  .8D 88.     Y8b  d8 88 `88.    88    88         88    \n"
+"Y8888D' Y88888P  `Y88P' 88   YD    YP    88         YP    \033[0m")
+print('--------------------------------------------------------------------\n')
+
+print('\033[1;31mFORTIFY \033[0mSOLUTIONS')
+print(time.asctime(),'version:1.0\nrelease date:08-Nov-2019')
+print('\n\033[1;31m[1]\033[0m To Encrypt Data\n\033[1;31m[2]\033[0m To Decrypt Data')
+while True:
+        try:
+            option = int(input('\033[1;32mEnter option :'))
+            break
+        except ValueError:
+            print('\033[34mProvide correct input\033[0m')
+
+while True:
+    count = 0
+    if option == 1:
+        file = open('LogSheet.txt','a+')
+        x = input('\033[32mEnter -\n')
+        list = []
+        file.write('\n')
+        file.write(time.asctime())
+        file.write('\n')
+        for i in x:
+            if count == 0:
+                i = chr(ord(i) - 4)
+                list.append(i)
+            elif count == 1:
+                i = chr(ord(i) - 9)
+                list.append(i)
+            elif count == 2:
+                i = chr(ord(i) - 15)
+                list.append(i)
+            elif count == 3:
+                i = chr(ord(i) - 11)
+                list.append(i)
+            elif count == 4:
+                i = chr(ord(i) - 2)
+                list.append(i)
+            elif count == 5:
+                i = chr(ord(i) - 7)
+                list.append(i)
+            elif count < 10 and count > 5:
+                i = chr(ord(i) - 5)
+                list.append(i)
+            elif count >= 10:
+                i = chr(ord(i) - 6)
+                list.append(i)
+            count +=1
+
+        print('\033[31mThe Encryption :\033[0m')
+        for i in list:
+            file.write('Encrypted:\n')
+            file.write(i)
+            print(i,end="")
+        file.close()
+        break
+
+    elif option == 2:
+        file = open('LogSheet.txt', 'a+')
+        x1 = input('\033[32mEnter -\n')
+        list = []
+        file.write('\n')
+        file.write(time.asctime())
+        file.write('\n')
+        for i in x1:
+            if count == 0:
+                i = chr(ord(i) + 4)
+                list.append(i)
+            elif count == 1:
+                i = chr(ord(i) + 9)
+                list.append(i)
+            elif count == 2:
+                i = chr(ord(i) + 15)
+                list.append(i)
+            elif count == 3:
+                i = chr(ord(i) + 11)
+                list.append(i)
+            elif count == 4:
+                i = chr(ord(i) + 2)
+                list.append(i)
+            elif count == 5:
+                i = chr(ord(i) + 7)
+                list.append(i)
+            elif count < 10 and count > 5:
+                i = chr(ord(i) + 5)
+                list.append(i)
+            elif count >= 10:
+                i = chr(ord(i) + 6)
+                list.append(i)
+            count +=1
+        print('\033[31mThe Decryption :\033[0m')
+        for i in list:
+            file.write('Decrypted:\n')
+            file.write(i)
+            print(i, end="")
+        file.close()
+        break
+time.sleep(2)
+print('\n\nNote: A file Name: LogSheet is Generated and the file path is:')
+print(os.path.realpath(__file__))
+time.sleep(2)
+print('\n-------------------------------------------------------------------------')
+print('\033[31mFORTIFY\033[0m SOLUTIONS, Thanks to all members for its support and contributions')

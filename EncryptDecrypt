@@ -65,8 +65,8 @@ while True:
             count +=1
 
         print('\033[31mThe Encryption :\033[0m')
+        file.write('Encrypted:\n')
         for i in list:
-            file.write('Encrypted:\n')
             file.write(i)
             print(i,end="")
         file.close()
@@ -106,8 +106,8 @@ while True:
                 list.append(i)
             count +=1
         print('\033[31mThe Decryption :\033[0m')
+        file.write('Decrypted:\n')
         for i in list:
-            file.write('Decrypted:\n')
             file.write(i)
             print(i, end="")
         file.close()

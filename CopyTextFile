@@ -1,0 +1,75 @@
+import time
+import os
+
+print('------------------------------------------------------')
+print("\033[1;31m  __                   _____            _____        \n"
+      " / ()  _              () | _    _|_    () |_ o |\  _ \n"
+      "|     / \_|/\_|  |       ||/ /\/ |       /| || |/ |/ \n"
+      " \___/\_/ |_/  \/|/    (/ |_/ /\/|_/    (/   |/|_/|_/\n"
+      "         (|     (|                                   \033[0m")
+print('-------------------------------------------------------\n')
+
+print('\033[1;31mFORTIFY \033[0mSOLUTIONS')
+print('\033[32m', time.asctime(), '\033[0mversion:1.0\nrelease date:10-Nov-2019')
+
+
+def directorylocation():
+    while True:
+        print(os.path.realpath(__file__))
+        x2 = input('Enter Directory :')
+        print(os.listdir(x2))
+        x22 = input('Enter 1 to continue or enter any key to search in other directory')
+        if x22 == 1:
+            x1 = input('Enter file name :').strip()
+            x3 = os.path.join(x2, x1)
+            break
+    return x3
+
+
+print('\033[34mSelect 1st file, which you want to copied in Second File')
+while True:
+    print(os.path.realpath(__file__))
+    try:
+        dpath1 = input('\033[31mEnter Directory :')
+    except NotADirectoryError:
+        print('Enter Correct path')
+    print(os.listdir(dpath1))
+    x22 = input('Enter 1 to continue or Enter any key to search file in other directory :')
+    if x22 == '1':
+        filename1 = input('Enter file name :').strip()
+        filepath1 = os.path.join(dpath1, filename1)
+        break
+print(f'\n\033[34mSelect 2nd file in which you want to copy the {filename1} file')
+while True:
+    print(os.path.realpath(__file__))
+    dpath2 = input('\033[31mEnter Directory :')
+    print(os.listdir(dpath2))
+    x122 = input('Enter 1 to continue or Enter any key to search file in other directory :')
+    if x122 == '1':
+        filename2 = input('Enter file name :').strip()
+        filepath2 = os.path.join(dpath2, filename2)
+        break
+
+
+def copytestfile1(y, y1):
+    ls1 = open(y, 'r')
+    ls2 = open(y1, 'a')
+    ls2.write('\n')
+    for i in ls1:
+        for j in i:
+            ls2.write(j)
+    print('\n')
+    ls1.close()
+    ls2.close()
+
+
+if os.path.isfile(filepath1):
+    copytestfile1(filepath1, filepath2)
+    time.sleep(3)
+    print(f"\033[34mFile:'{filename1}' is copied in File:'{filename2}'")
+else:
+    print('Enter correct file')
+
+time.sleep(2)
+print('\n-------------------------------------------------------------------------')
+print('\033[31mFORTIFY\033[0m SOLUTIONS, Thanks to all members for its support and contributions')

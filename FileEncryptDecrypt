@@ -1,7 +1,7 @@
 import os
 import time
 
-# ref below file, which shared in github
+
 def heading():
     print('------------------------------------------------------')
     print("\033[1;31m  __                   _____            _____        \n"

@@ -1,147 +1,150 @@
 import os
 import time
 
-def main():
 # ref below file, which shared in github
-    def nativefile():
-        print('------------------------------------------------------')
-        print("\033[1;31m  __                   _____            _____        \n"
-              " / ()  _              () | _    _|_    () |_ o |\  _ \n"
-              "|     / \_|/\_|  |       ||/ /\/ |       /| || |/ |/ \n"
-              " \___/\_/ |_/  \/|/    (/ |_/ /\/|_/    (/   |/|_/|_/\n"
-              "         (|     (|                                   \033[0m")
-        print('-------------------------------------------------------\n')
+def heading():
+    print('------------------------------------------------------')
+    print("\033[1;31m  __                   _____            _____        \n"
+          " / ()  _              () | _    _|_    () |_ o |\  _ \n"
+          "|     / \_|/\_|  |       ||/ /\/ |       /| || |/ |/ \n"
+          " \___/\_/ |_/  \/|/    (/ |_/ /\/|_/    (/   |/|_/|_/\n"
+          "         (|     (|                                   \033[0m")
+    print('-------------------------------------------------------\n')
 
-        print('\033[1;31mFORTIFY \033[0mSOLUTIONS')
-        print('\033[32m', time.asctime(), '\033[0mversion:1.0\nrelease date:10-Nov-2019')
-
-
-        def create():
-            ls1 = open('LogSheet.txt', 'a')
-            ls2 = open('test.txt', 'a')
-
-            ls1.write("ls1 write the information\nend line")
-            ls2.write("ls2 ............\n2nd..")
-            ls1.close()
-            ls2.close()
+    print('\033[1;31mFORTIFY \033[0mSOLUTIONS')
+    print('\033[32m', time.asctime(), '\033[0mversion:1.0\nrelease date:15-Nov-2019')
 
 
-        def copytestfile():
-            ls1 = open('LogSheet.txt', 'r')
-            ls2 = open('test.txt', 'a')
-            ls2.write('\n')
-            for i in ls1:
-                for j in i:
-                    print(j, end="")
-                    ls2.write(j)
-            print('\n')
-            ls1.close()
-            ls2.close()
+def create():
+    ls1 = open('LogSheet.txt', 'a')
+    ls2 = open('test.txt', 'a')
+
+    ls1.write("ls1 write the information\nend line")
+    ls2.write("ls2 ............\n2nd..")
+    ls1.close()
+    ls2.close()
 
 
-        def encrypttext(x, y):
-            ls1 = open(x, 'r')
-            ls2 = open(y, 'a')
-
-            for p in ls1:
-                print("\n")
-                for k in p:
-                    #ls2.write('\n')
-                    q = chr(ord(k) - 7)
-                    ls2.write(q)
-                    # print(q, end="")
-            ls1.close()
-            ls2.close()
+def copytestfile():
+    ls1 = open('LogSheet.txt', 'r')
+    ls2 = open('test.txt', 'a')
+    ls2.write('\n')
+    for i in ls1:
+        for j in i:
+            print(j, end="")
+            ls2.write(j)
+    print('\n')
+    ls1.close()
+    ls2.close()
 
 
-        def Decrypttext(x, y):
-            ls1 = open(x, 'r')
-            ls2 = open(y, 'a')
-
-            for p in ls1:
-                print("\n")
-                for k in p:
-                    #ls2.write('\n')
-                    q = chr(ord(k) + 7)
-                    ls2.write(q)
-                    # print(q, end="")
-            ls1.close()
-            ls2.close()
-
-        def directorylocation():
-            while True:
-                print(os.path.realpath(__file__))
-                x2 = input('Enter Directory :')
-                print(os.listdir(x2))
-                x22 = input('Enter 1 to continue or enter any key to search in other directory')
-                if x22 == 1:
-                    x1 = input('Enter file name :').strip()
-                    x3 = os.path.join(x2, x1)
-                    break
-            return x3
-
-    #Start from here:
-        print('\033[34mSelect 1st file, which you want to copied in Second File')
-        while True:
-            print(os.path.realpath(__file__))
-            try:
-                dpath1 = input('\033[31mEnter Directory :')
-            except NotADirectoryError:
-                print('Enter Correct path')
-            print(os.listdir(dpath1))
-            x22 = input('Enter 1 to continue or Enter any key to search file in other directory :')
-            if x22 == '1':
-                filename1 = input('Enter file name :').strip()
-                filepath1 = os.path.join(dpath1, filename1)
-                break
-        print(f'\n\033[34mSelect 2nd file in which you want to copy the {filename1} file')
-        while True:
-            print(os.path.realpath(__file__))
-            dpath2 = input('\033[31mEnter Directory :')
-            print(os.listdir(dpath2))
-            x122 = input('Enter 1 to continue or Enter any key to search file in other directory :')
-            if x122 == '1':
-                filename2 = input('Enter file name :').strip()
-                filepath2 = os.path.join(dpath2, filename2)
-                break
+def encrypttext(x, y):
+    ls1 = open(x, 'r')
+    ls2 = open(y, 'a')
+    ls2.write('\n')
+    for p in ls1:
+        ls2.write('\n')
+        for k in p:
+            q = chr(ord(k) - 7)
+            ls2.write(q)
+            # print(q, end="")
+    ls1.close()
+    ls2.close()
 
 
-        def copytestfile1(y, y1):
-            ls1 = open(y, 'r')
-            ls2 = open(y1, 'a')
-            ls2.write('\n')
-            for i in ls1:
-                for j in i:
-                    # print(j, end="")
-                    ls2.write(j)
-            print('\n')
-            ls1.close()
-            ls2.close()
+def Decrypttext(x, y):
+    ls1 = open(x, 'r')
+    ls2 = open(y, 'a')
+    ls2.write('\n')
+    for p in ls1:
+        ls2.write('\n')
+        for k in p:
+            q = chr(ord(k) + 7)
+            ls2.write(q)
+            # print(q, end="")
+    ls1.close()
+    ls2.close()
 
-        while True:
-            print(f'To Copy {filename1} to {filename2} enter [1]\nTo Encrypt & Copy {filename1} to {filename2} enter [2]\nTo Decrypt & Copy {filename1} to {filename2} enter [3] ')
-            option = int(input())
+def directorylocation():
+    while True:
+        print(os.path.realpath(__file__))
+        x2 = input('Enter Directory :')
+        print(os.listdir(x2))
+        x22 = input('Enter 1 to continue or enter any key to search in other directory')
+        if x22 == 1:
+            x1 = input('Enter file name :').strip()
+            x3 = os.path.join(x2, x1)
+            break
+    return x3
 
-            if option == 1:
-                copytestfile1(filename1,filename2)
-                break
-            #if os.path.isfile(filepath1):
-                    # print('file exist')
+
+def copytestfile1(y, y1):
+    ls1 = open(y, 'r')
+    ls2 = open(y1, 'a')
+    ls2.write('\n')
+    for i in ls1:
+        for j in i:
+            # print(j, end="")
+            ls2.write(j)
+    print('\n')
+    ls1.close()
+    ls2.close()
+
+
+def body():    #Start from here:
+    print('\033[34mSelect 1st file, which you want to copied in Second File')
+    while True:
+        print(os.path.realpath(__file__))
+        try:
+            dpath1 = input('\033[31mEnter Directory :')
+        except NotADirectoryError:
+            print('Enter Correct path')
+        print(os.listdir(dpath1))
+        x22 = input('Enter [1] to continue or Search file in other directory enter any other key :')
+        if x22 == '1':
+            filename1 = input('Enter file name :').strip()
+            filepath1 = os.path.join(dpath1, filename1)
+            break
+    print(f"\n\033[34mSelect 2nd file in which you want to copy the \'{filename1}\' file")
+    while True:
+        print(os.path.realpath(__file__))
+        dpath2 = input('\033[31mEnter Directory :')
+        print(os.listdir(dpath2))
+        x122 = input('Enter [1] to continue or Search file in other directory enter any other key :')
+        if x122 == '1':
+            filename2 = input('Enter file name :').strip()
+            filepath2 = os.path.join(dpath2, filename2)
+            break
+    return filepath1, filepath2,filename1,filename2
+
+
+def body2(filepath1, filepath2, filename1,filename2):
+    if os.path.isfile(filepath1):
+        print('\033[34m')
+        print(f'To Copy {filename1} to {filename2} enter [1]\nTo Encrypt & Copy {filename1} to {filename2} enter [2]\nTo Decrypt & Copy {filename1} to {filename2} enter [3] ')
+        option = int(input())
+        if option == 1:
+            copytestfile1(filename1,filename2)
                 #copytestfile1(filepath1, filepath2) # You called files
-            elif option == 2:
-                encrypttext(filename1,filename2)
-                break
-            elif option ==3:
-                Decrypttext(filename1,filename2)
-                break
+        elif option == 2:
+            encrypttext(filename1,filename2)
+        elif option ==3:
+            Decrypttext(filename1,filename2)
+        time.sleep(3)
+        print(f"\033[34mFile:'{filename1}' is copied in File:'{filename2}'")
+        print(f"\033[0m{filename2} path is {filepath2}")
+            # encrypttext(filepath1,filepath2)
+    else:
+        time.sleep(2)
+        print('\nPlease select correct file')
 
-            time.sleep(3)
-            print(f"\033[34mFile:'{filename1}' is copied in File:'{filename2}'")
-                # encrypttext(filepath1,filepath2)
-        else:
-            print('Enter correct file')
-        time.sleep(4)
-        print('\n-------------------------------------------------------------------------')
-        print('\033[31mFORTIFY\033[0m SOLUTIONS, Thanks to all members for its support and contributions')
+
+def main():
+    heading()
+    x, y,f1, f2 = body()
+    body2(x,y,f1,f2)
+    time.sleep(4)
+    print('\n-------------------------------------------------------------------------')
+    print('\033[31mFORTIFY\033[0m SOLUTIONS, Thanks to all members for its support and contributions')
 
 main()
